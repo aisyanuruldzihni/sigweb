@@ -1,0 +1,111 @@
+body {
+  font-family: Arial;
+  background: #f5f0e6;
+  margin: 0;
+  color: #333;
+}
+
+.header {
+  background: #6b4226;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  background: white;
+  color: #6b4226;
+  cursor: pointer;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 40px 0;
+}
+
+.profil {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.profil img {
+  width: 160px;
+  height: 215px;
+  border: 3px solid #6b4226;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+h2 {
+  color: #6b4226;
+  border-bottom: 2px solid #6b4226;
+  padding-bottom: 5px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.contact table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.contact td {
+  border: 1px solid #6b4226;
+  padding: 10px;
+}
+
+.contact td:first-child {
+  background: #f0e4d7;
+  font-weight: bold;
+}
+
+footer {
+  background: #6b4226;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+/* DARK MODE */
+
+.dark {
+  background: #121212;
+  color: white;
+}
+
+.dark .card {
+  background: #1f1f1f;
+}
+
+.dark header,
+.dark footer {
+  background: #1e1e1e;
+}
+
+.dark td:first-child {
+  background: #2a2a2a;
+}

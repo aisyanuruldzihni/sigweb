@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>WebGIS Kabupaten Bekasi</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+    <script src="bekasi.js"></script>
+
+    <style>
+      /* ===== ALL ===== */
+      body {
+        background-color: #f5f1ec;
+      }
+
+      .section-title {
+        color: #7b4b2a;
+        font-weight: bold;
+      }
+
+      /* ===== NAVBAR ===== */
+      .navbar {
+        background-color: #7b4b2a !important;
+      }
+
+      .navbar .nav-link,
+      .navbar .navbar-brand {
+        color: white !important;
+      }
+
+      /* ===== SECTION ===== */
+      .hero img {
+        object-fit: cover;
+      }
+
+      /* ===== GALERY ===== */
+      .card {
+        border-radius: 10px;
+        border: 1px solid #ddd;
+      }
+
+      .card img {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        text-align: center;
+        font-weight: 500;
+      }
+
+      /* ===== JUDUL KATEGORI ===== */
+      .category-title {
+        color: #7b4b2a;
+        font-weight: bold;
+        margin-top: 40px;
+      }
+
+      /* ===== BUTTON ===== */
+      .btn-primary {
+        background-color: #7b4b2a;
+        border: none;
+      }
+
+      /* ===== CV ===== */
+      .cv-header {
+        background: #7b4b2a;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-weight: bold;
+      }
+
+      body.dark #cv div[style*="#f5f1ec"] {
+        background-color: #121212 !important;
+      }
+
+      body.dark #cv div[style*="background: white"] {
+        background-color: #1e1e1e !important;
+        color: #ffffff !important;
+      }
+
+      body.dark #cv p,
+      body.dark #cv li,
+      body.dark #cv td {
+        color: #ffffff !important;
+      }
+
+      body.dark #cv h5[style*="#7b4b2a"] {
+        color: #c8a27a !important;
+      }
+
+      body.dark #cv hr {
+        border-color: #c8a27a !important;
+      }
+
+      body.dark #cv table {
+        color: #ffffff !important;
+        border-color: #555 !important;
+      }
+
+      body.dark #cv img {
+        border-color: #c8a27a !important;
+      }
+
+      /* ===== DARK MODE ===== */
+      body.dark {
+        background-color: #121212;
+        color: white;
+      }
+
+      body.dark .navbar {
+        background-color: #1e1e1e !important;
+      }
+    </style>
+  </head>
+
+  <body id="home">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg shadow fixed-top">
+      <div class="container">
+        <a class="navbar-brand">WebGIS Kabupaten Bekasi</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+          <span class="navbar-toggler-icon bg-light"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galery">Galery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item"></li><a class="nav-link" href="cv.html">CV</a></il>
+            <li class="nav-item">
+              <button id="darkModeBtn" class="btn btn-light btn-sm ms-2">🌙</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SECTION -->
+    <section class="hero mt-5 pt-4">
+      <img src="KabBekasi.jpg" width="100%" height="500" />
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="pt-5 mt-6">
+      <div class="container text-center">
+        <h2 class="section-title mb-4">About Kabupaten Bekasi</h2>
+
+        <p style="text-align: justify">
+          Kabupaten Bekasi merupakan salah satu wilayah strategis di Provinsi Jawa Barat yang berbatasan langsung dengan DKI Jakarta dan menjadi bagian dari kawasan metropolitan Jabodetabek. Dikenal sebagai pusat industri nasional,
+          khususnya di kawasan Cikarang, Kabupaten Bekasi berkembang pesat dengan dukungan infrastruktur modern serta kawasan permukiman yang terus meluas. Di sisi lain, wilayah pesisir seperti Muara Gembong menghadirkan nuansa berbeda yang
+          memperkaya karakter wilayahnya.
+        </p>
+
+        <p style="text-align: justify">
+          Secara administratif, Kabupaten Bekasi terdiri atas kecamatan Tambun Selatan, Tambun Utara, Babelan, Tarumajaya, Cabangbungin, Muaragembong, Cibitung, Cikarang Barat, Cikarang Selatan, Cikarang Timur, Cikarang Utara, Cikarang
+          Pusat, Setu, Serang Baru, Bojongmangu, Kedungwaringin, Karangbahagia, Pebayuran, Sukakarya, Sukatani, dan Sukawangi. Selain itu, wilayah ini didukung oleh jaringan transportasi yang cukup lengkap seperti jalan tol Jakarta hingga
+          Cikampek dan jalur kereta komuter yang menghubungkan Bekasi dengan Jakarta dan sekitarnya.
+        </p>
+
+        <p style="text-align: justify">
+          Dengan jumlah penduduk yang besar dan pertumbuhan wilayah yang cepat, Kabupaten Bekasi menunjukkan dinamika perkembangan yang signifikan, baik dari sisi ekonomi, infrastruktur, maupun penggunaan lahannya yang terus mengalami
+          perubahan.
+        </p>
+      </div>
+    </section>
+
+    <!-- GALERY -->
+    <section id="galery" class="mt-5">
+      <div class="container">
+        <h2 class="text-center section-title">Lokasi Penting di Kabupaten Bekasi</h2>
+
+        <!-- PEMERINTAHAN -->
+        <h4 class="category-title">Pemerintahan</h4>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <img src="tarumajaya.jpeg" />
+              <div class="card-body">Kantor Kecamatan Tarumajaya</div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <img src="cabangbungin.jpeg" />
+              <div class="card-body">Kantor Kecamatan Cabangbungin</div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <img src="sukawangi.jpg" />
+              <div class="card-body">Kantor Kecamatan Sukawangi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <img src="selatan.jpg" />
+              <div class="card-body">Kantor Kecamatan Tambun Selatan</div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <img src="serang.jpg" />
+              <div class="card-body">Kantor Kecamatan Serang Baru</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KESEHATAN -->
+        <h4 class="category-title">Kesehatan</h4>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <img src="RSUDKabBek.jpg" />
+              <div class="card-body">RSUD Kabupaten Bekasi</div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <img src="RSPermata.jpeg" />
+              <div class="card-body">RS Permata Keluarga Lippo Cikarang</div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <img src="puskesmas.jpg" />
+              <div class="card-body">Puskesmas Babelan I</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRANSPORTASI -->
+        <h4 class="category-title">Transportasi</h4>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <img src="stasiunbekasi.jpg" />
+              <div class="card-body">Stasiun Tambun</div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <img src="stasiunlmb.jpeg" />
+              <div class="card-body">Stasiun Lemahabang</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBGIS -->
+    <section class="mt-5">
+      <div class="container">
+        <h2 class="text-center section-title">Peta Kepadatan Penduduk Kabupaten Bekasi</h2>
+
+        <iframe src="webgis.html" width="100%" height="500" style="border-radius: 10px"></iframe>
+
+        <!-- DESKRIPSI -->
+        <p style="text-align: justify; margin-top: 20px">
+          Kepadatan penduduk menunjukkan jumlah penduduk dalam suatu wilayah. Berdasarkan peta kepadatan penduduk Kabupaten Bekasi, tingkat kepadatan dibagi menjadi tiga kategori, yaitu rendah (0–2.022 orang), sedang (2.022–4.589 orang),
+          dan tinggi (4.589–765.000 orang). Persebaran penduduk terlihat tidak merata, di mana wilayah barat hingga tengah seperti Tambun, Cibitung, dan Cikarang termasuk dalam kategori kepadatan tinggi karena didukung oleh kawasan
+          industri, permukiman, serta akses transportasi yang baik. Sementara itu, wilayah timur dan utara cenderung memiliki kepadatan lebih rendah karena masih didominasi oleh lahan pertanian dan kawasan pesisir.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="mt-5">
+      <div class="container">
+        <h2 class="text-center section-title">Feedback & Suggestions</h2>
+
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form>
+              <input class="form-control mb-3" placeholder="Nama" />
+              <input class="form-control mb-3" placeholder="Email" />
+              <textarea class="form-control mb-3" placeholder="Pesan"></textarea>
+              <button class="btn btn-primary w-100">Kirim</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!--FOOTER-->
+    <footer class="text-center mt-4 mb-3">
+      <p>Created by Aisya Nurul Dzihni</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.getElementById("darkModeBtn").onclick = function () {
+        document.body.classList.toggle("dark");
+      };
+    </script>
+  </body>
+</html>
